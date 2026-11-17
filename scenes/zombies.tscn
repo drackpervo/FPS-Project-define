@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cbet4a6mfybtn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlapt"]
+albedo_color = Color(0.047058824, 1, 0.023529412, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tufdj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hoe4n"]
+
+[node name="zombies" type="CharacterBody3D" unique_id=1470930966]
+
+[node name="body" type="MeshInstance3D" parent="." unique_id=106827147]
+material_override = SubResource("StandardMaterial3D_tlapt")
+mesh = SubResource("CapsuleMesh_tufdj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=894931723]
+shape = SubResource("CapsuleShape3D_hoe4n")
+
+[node name="nav_agent" type="NavigationAgent3D" parent="." unique_id=2057702260]
