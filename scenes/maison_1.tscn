@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://c4063mn4ehtjy" path="res://textures/test_tres/black.tres" id="1_w0l8h"]
 [ext_resource type="Texture2D" uid="uid://duovkeuaxf6ou" path="res://textures/orange/texture_01.png" id="2_x2rit"]
+[ext_resource type="Texture2D" uid="uid://bvr1tmxwr5bc5" path="res://textures/purple/texture_05.png" id="3_4tvw2"]
 [ext_resource type="PackedScene" uid="uid://wwqnhqhhx2yn" path="res://scenes/player.tscn" id="3_7kttb"]
 [ext_resource type="PackedScene" uid="uid://cbet4a6mfybtn" path="res://scenes/zombies.tscn" id="4_w0l8h"]
 
@@ -23,6 +24,10 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tufdj"]
 albedo_texture = ExtResource("2_x2rit")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0l8h"]
+albedo_texture = ExtResource("3_4tvw2")
 uv1_triplanar = true
 
 [node name="Maison-1" type="NavigationRegion3D" unique_id=1471322295]
@@ -135,6 +140,52 @@ size = Vector3(14.163, 5, 4)
 [node name="pont2" type="CSGBox3D" parent="pont/pont" unique_id=1720875709]
 operation = 2
 size = Vector3(14.163, 4, 3)
+
+[node name="maison2" type="Node3D" parent="." unique_id=66712357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.2238, 0, 0)
+
+[node name="maison_2" type="CSGCombiner3D" parent="maison2" unique_id=519245409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0509319, 0)
+material_override = SubResource("StandardMaterial3D_w0l8h")
+use_collision = true
+
+[node name="floor" type="CSGBox3D" parent="maison2/maison_2" unique_id=1717705061]
+size = Vector3(20, 10, 20)
+
+[node name="floor2" type="CSGBox3D" parent="maison2/maison_2/floor" unique_id=938975311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6588998, 0)
+operation = 2
+size = Vector3(19, 10, 19)
+
+[node name="porte" type="CSGBox3D" parent="maison2/maison_2" unique_id=90020120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.285688, -9.672525)
+operation = 2
+size = Vector3(1.5, 2.5, 1)
+
+[node name="diviseur" type="CSGBox3D" parent="maison2/maison_2" unique_id=1293798960]
+size = Vector3(20, 10, 0.5)
+
+[node name="porte" type="CSGBox3D" parent="maison2/maison_2/diviseur" unique_id=1316959366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.849617, -3.3235545, 0)
+operation = 2
+size = Vector3(1.5, 2.5, 1)
+
+[node name="etage" type="CSGBox3D" parent="maison2/maison_2/diviseur" unique_id=1680128210]
+size = Vector3(20, 0.5, 20)
+
+[node name="trou" type="CSGBox3D" parent="maison2/maison_2/diviseur/etage" unique_id=125479149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0593643, -0.024433732, 0.9778644)
+operation = 2
+size = Vector3(6.111084, 1, 1.3446045)
+
+[node name="esqualier" type="CSGBox3D" parent="maison2/maison_2/diviseur" unique_id=1664745822]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -0.5739517, -2.6371188, 0.88234925)
+size = Vector3(11, 0.3, 1.5)
+
+[node name="porte-haut" type="CSGBox3D" parent="maison2/maison_2/diviseur" unique_id=1507967204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5358353, 1.5278969, 0)
+operation = 2
+size = Vector3(1.5, 2.5, 1)
 
 [node name="player" parent="." unique_id=2050664577 instance=ExtResource("3_7kttb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3787525, 0)
